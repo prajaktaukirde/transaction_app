@@ -1,9 +1,6 @@
 # Transaction App
 
 A small service/app to ingest SMS/email transaction messages, normalize them, classify, and compute impacts on demo goals. Built with **FastAPI** backend and optional **Flutter** frontend.
-
----
-
 ## 📂 Project Structure
 transaction_service/
 ├─ src/
@@ -20,8 +17,11 @@ transaction_service/
 transaction_ui/
 ├─ lib/
 │ ├─ main.dart
-│ ├─ models/transaction.dart
-│ └─ services/api_service.dart
+│ ├─ models/
+│ │ └─ transaction.dart
+│ └─ services/
+│ └─ api_service.dart
+---
 
 
 ---
