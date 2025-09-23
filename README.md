@@ -41,9 +41,9 @@ transaction_ui/
 ## 🛠️ Tech Stack
 
 - **Backend:** Python 3.10+, FastAPI
+- **Frontend:** Flutter (optional)
 - **Database:** SQLite
 - **ML:** TensorFlow Lite (stub interface provided)
-
 ---
 📺 Screenshots
 
