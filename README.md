@@ -5,7 +5,6 @@ A small service/app to ingest SMS/email transaction messages, normalize them, cl
 ---
 
 ## 📂 Project Structure
-
 transaction_service/
 ├─ src/
 │ ├─ main.py # FastAPI entrypoint
@@ -17,6 +16,7 @@ transaction_service/
 ├─ data/
 │ ├─ sms.txt
 │ └─ email.txt
+
 transaction_ui/
 ├─ lib/
 │ ├─ main.dart
