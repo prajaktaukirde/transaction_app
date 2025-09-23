@@ -4,26 +4,28 @@ A small service + Flutter app to ingest SMS/email transaction data, classify tra
 
 ---
 
-## Project Structure
-transaction_service/
-├─ src/
-│ ├─ main.py # FastAPI entrypoint
-│ ├─ models.py # Pydantic models for API
-│ ├─ db.py # SQLite connection & table creation
-│ ├─ ingest.py # Functions to read sms.txt/email.txt and insert
-│ ├─ classify.py # classify(message) stub for TF-Lite
-│ └─ goal_impact.py # Compute impact on goals
-├─ data/
-│ ├─ sms.txt
-│ └─ email.txt
+# Project Structure
 
-transaction_ui/
-├─ lib/
-│ ├─ main.dart
-│ ├─ models/
-│ │ └─ transaction.dart
-│ └─ services/
-│ └─ api_service.dart
+## Backend: `transaction_service/`
+
+- `src/`
+  - `main.py` → FastAPI entrypoint
+  - `models.py` → Pydantic models for API
+  - `db.py` → SQLite connection & table creation
+  - `ingest.py` → Functions to read `sms.txt` / `email.txt` and insert
+  - `classify.py` → `classify(message)` stub for TF-Lite
+  - `goal_impact.py` → Compute impact on goals
+- `data/`
+  - `sms.txt`
+  - `email.txt`
+
+## Frontend: `transaction_ui/`
+
+- `lib/`
+  - `main.dart`
+  - `models/transaction.dart`
+  - `services/api_service.dart`
+
 
 ---
 
