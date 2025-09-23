@@ -45,6 +45,12 @@ transaction_ui/
 - **ML:** TensorFlow Lite (stub interface provided)
 
 ---
+📺 Screenshots
+
+<img width="700" height="500" alt="Screenshot 2025-09-23 162222" src="https://github.com/user-attachments/assets/d297b85f-5453-4fc9-b504-a38f051c2a0a" />
+
+<img width="700" height="500" alt="Screenshot 2025-09-23 162300" src="https://github.com/user-attachments/assets/f44bac1f-158e-4ca8-a05a-0ef04b61cb34" />
+
 
 ## 🚀 Getting Started
 
@@ -122,9 +128,5 @@ GET /transactions
 
 Flutter app will fetch and display transactions and goal impacts.
 
-📺 Screenshots
 
-<img width="700" height="500" alt="Screenshot 2025-09-23 162222" src="https://github.com/user-attachments/assets/d297b85f-5453-4fc9-b504-a38f051c2a0a" />
-
-<img width="700" height="500" alt="Screenshot 2025-09-23 162300" src="https://github.com/user-attachments/assets/f44bac1f-158e-4ca8-a05a-0ef04b61cb34" />
 
