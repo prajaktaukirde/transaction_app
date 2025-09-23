@@ -1,13 +1,100 @@
-# Transaction App
+# AI/ML Intern: Take Home Assignment Submission
 
-A small service + Flutter app to ingest SMS/email transaction data, classify transactions, compute goal impacts, and display results via APIs or Flutter UI.
+## Candidate Information
+- **Availability & Commitment:** I can commit 20–40 hours per week for at least 12 weeks during this internship.  
+- **Upcoming Exams/Obligations:** No upcoming exams or projects that will limit my availability.  
+- **College/Institutional Restrictions:** No restrictions from my college.  
+- **Legal & Contractual Readiness:**  
+  - Able to sign standard internship contract with Amifi Fintech Labs.  
+  - Willing to sign NDA if required.  
+  - Eligible to receive stipends.  
+  - Above 18 years of age.  
+- **Conflict of Interest:** No conflicts with other organizations, projects, or side engagements.  
+- **Technology Readiness:**  
+  - Have reliable laptop and internet capable of running Python/Node, SQLite, and TF-Lite.  
+  - Prior knowledge of Git/GitHub for version control.  
+  - Android device/emulator available for testing Flutter + TF-Lite.  
+- **GPA:** 8.9 CGPA; transcript attached.  
+- **Integrity Commitment:** I confirm all submissions are my own work.  
+  > “I understand that Amifi reserves the right to disqualify or blacklist candidates in case of fraudulent practices or non-disclosure.”
 
 ---
 
-# Project Structure
+## Project Overview
 
-## Backend: `transaction_service/`
+### Objective
+Build a small service/app that:  
+1. Ingests sample SMS/email text about transactions.  
+2. Parses & normalizes into a transactions table (SQLite only).  
+3. Classifies each transaction type via a TF-Lite model (or rule-based stub).  
+4. Computes impact on a demo goal (e.g., “Savings reduced” or “Bill due soon”).  
+5. Exposes APIs (Python FastAPI) or a Flutter UI that shows stored transactions + impacts.
 
+### Provided Data
+- **SMS:** `data/sms.txt`  
+- **Email:** `data/email.txt`  
+
+---
+
+## Database Schema (SQLite)
+
+### `transactions` Table
+| Column        | Type        | Description |
+|---------------|------------|------------|
+| id            | TEXT/UUID  | Primary key |
+| user_id       | TEXT       | Hardcoded `"demo-user"` |
+| ts            | TIMESTAMP  | UTC timestamp |
+| amount        | NUMERIC    | Transaction amount |
+| currency      | TEXT       | Currency code |
+| account_ref   | TEXT       | Account or card reference |
+| channel       | TEXT       | `"sms"` | `"email"` |
+| raw_msg_id    | TEXT       | Hash of raw line |
+| hash          | TEXT       | Idempotency key |
+| type          | TEXT       | `"credit" | "debit" | "bill" | "fee" | "other"` |
+| category      | TEXT       | e.g., `"shopping"`, `"utilities"` |
+| confidence    | REAL       | Classification confidence |
+| meta          | JSON       | Arbitrary details (merchant, last4, refs) |
+
+### `goal_impacts` Table
+| Column           | Type        | Description |
+|-----------------|------------|------------|
+| id               | TEXT/UUID  | Primary key |
+| transaction_id   | TEXT (fk)  | Linked transaction |
+| goal_id          | TEXT       | e.g., `"demo-savings"` |
+| impact_score     | REAL       | -1..+1 |
+| message          | TEXT       | Human-readable impact |
+| created_at       | TIMESTAMP  | Timestamp |
+
+---
+
+## Functional Requirements Implemented
+- **Ingestion:** Reads `sms.txt` and `email.txt` to insert normalized rows.  
+- **Parsing:** Extracts `{amount, merchant, account_ref, date/time}` using regex.  
+- **Classification:** `classify(message)` interface implemented (TF-Lite stub).  
+- **Goal Impact:** Debit → negative savings, Credit → positive, Bill → due-date warning.  
+- **API/UI:** FastAPI backend; optional Flutter frontend showing results.
+
+---
+
+## Non-Functional Notes
+- **Secrets:** Loaded from environment variables only.  
+- **PII Masking:** Account/card numbers masked in logs.  
+- **Security & Scalability:** See `THREAT_MODEL.md` (PII leaks, SQL injection, API misuse).  
+- **Database Migration:** SQLite → Postgres migration path documented.  
+
+---
+
+## Tech Stack
+- **Backend:** Python 3.10+, FastAPI  
+- **Database:** SQLite  
+- **Frontend:** Flutter (optional)  
+- **ML:** TensorFlow Lite stub provided  
+
+---
+
+## Project Structure
+
+### Backend: `transaction_service/`
 - `src/`
   - `main.py` → FastAPI entrypoint
   - `models.py` → Pydantic models for API
@@ -19,33 +106,24 @@ A small service + Flutter app to ingest SMS/email transaction data, classify tra
   - `sms.txt`
   - `email.txt`
 
-## Frontend: `transaction_ui/`
-
+### Frontend: `transaction_ui/`
 - `lib/`
   - `main.dart`
   - `models/transaction.dart`
   - `services/api_service.dart`
 
-
 ---
 
-## ⚡ Features
+## Deliverables
+- `/src` code (backend)  
+- `/data` with sample text  
+- `/tests` with at least 3 small tests  
+- `README.md` (this file)  
+- `DISCLOSURE.md` & `THREAT_MODEL.md`  
+- Run backend:  
+```bash
+python -m uvicorn src.main:app --reload
 
-- Ingest sample SMS/email text about transactions.
-- Parse & normalize messages into a SQLite transactions table.
-- Classify each transaction type (`credit`, `debit`, `bill`, etc.) using TF-Lite or baseline stub.
-- Compute impact on a demo goal (e.g., savings, bill due alerts).
-- Expose APIs via FastAPI backend.
-- Optional Flutter frontend displays stored transactions and impacts.
-
----
-
-## 🛠️ Tech Stack
-
-- **Backend:** Python 3.10+, FastAPI
-- **Frontend:** Flutter (optional)
-- **Database:** SQLite
-- **ML:** TensorFlow Lite (stub interface provided)
 ---
 📺 Screenshots
 
