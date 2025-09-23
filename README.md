@@ -1,7 +1,10 @@
 # Transaction App
 
-A small service/app to ingest SMS/email transaction messages, normalize them, classify, and compute impacts on demo goals. Built with **FastAPI** backend and optional **Flutter** frontend.
-## 📂 Project Structure
+A small service + Flutter app to ingest SMS/email transaction data, classify transactions, compute goal impacts, and display results via APIs or Flutter UI.
+
+---
+
+## Project Structure
 transaction_service/
 ├─ src/
 │ ├─ main.py # FastAPI entrypoint
@@ -21,8 +24,6 @@ transaction_ui/
 │ │ └─ transaction.dart
 │ └─ services/
 │ └─ api_service.dart
----
-
 
 ---
 
@@ -40,7 +41,6 @@ transaction_ui/
 ## 🛠️ Tech Stack
 
 - **Backend:** Python 3.10+, FastAPI
-- **Frontend:** Flutter (optional)
 - **Database:** SQLite
 - **ML:** TensorFlow Lite (stub interface provided)
 
