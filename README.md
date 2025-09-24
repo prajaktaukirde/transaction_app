@@ -135,61 +135,38 @@ venv\Scripts\activate.bat
 
 
 Install dependencies:
-
 pip install fastapi uvicorn pydantic
 
-
 Run the backend:
-
 python -m uvicorn src.main:app --reload
-
-
 Backend will run at http://127.0.0.1:8000
 
 Endpoints:
-
 GET /transactions – fetch all transactions
-
 POST /ingest/sms – ingest SMS messages
-
 POST /ingest/email – ingest Email messages
-
 GET /goal_impacts – fetch goal impacts
 
 2. Frontend (Flutter)
-
 Navigate to the Flutter project folder:
-
 cd transaction_ui
 
 
 Get Flutter dependencies:
-
 flutter pub get
-
-
 Run the app (choose your device or Chrome):
-
 flutter run
 
 🔧 How to Use
-
 Start backend.
-
 Ingest sample data via:
-
 # SMS
 POST /ingest/sms
-
 # Email
 POST /ingest/email
 
-
 Fetch transactions via:
-
 GET /transactions
-
-
 Flutter app will fetch and display transactions and goal impacts.
 
 
