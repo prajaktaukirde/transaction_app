@@ -1,25 +1,3 @@
-# AI/ML Intern: Take Home Assignment Submission
-
-## Candidate Information
-- **Availability & Commitment:** I can commit 20–40 hours per week for at least 12 weeks during this internship.  
-- **Upcoming Exams/Obligations:** No upcoming exams or projects that will limit my availability.  
-- **College/Institutional Restrictions:** No restrictions from my college.  
-- **Legal & Contractual Readiness:**  
-  - Able to sign standard internship contract with Amifi Fintech Labs.  
-  - Willing to sign NDA if required.  
-  - Eligible to receive stipends.  
-  - Above 18 years of age.  
-- **Conflict of Interest:** No conflicts with other organizations, projects, or side engagements.  
-- **Technology Readiness:**  
-  - Have reliable laptop and internet capable of running Python/Node, SQLite, and TF-Lite.  
-  - Prior knowledge of Git/GitHub for version control.  
-  - Android device/emulator available for testing Flutter + TF-Lite.  
-- **GPA:** 8.9 CGPA; transcript attached.  
-- **Integrity Commitment:** I confirm all submissions are my own work.  
-  > “I understand that Amifi reserves the right to disqualify or blacklist candidates in case of fraudulent practices or non-disclosure.”
-
----
-
 ## Project Overview
 
 ### Objective
@@ -66,6 +44,12 @@ Build a small service/app that:
 | created_at       | TIMESTAMP  | Timestamp |
 
 ---
+📺 Screenshots
+
+<img width="700" height="500" alt="Screenshot 2025-09-23 162222" src="https://github.com/user-attachments/assets/d297b85f-5453-4fc9-b504-a38f051c2a0a" />
+
+<img width="700" height="500" alt="Screenshot 2025-09-23 162300" src="https://github.com/user-attachments/assets/f44bac1f-158e-4ca8-a05a-0ef04b61cb34" />
+
 
 ## Functional Requirements Implemented
 - **Ingestion:** Reads `sms.txt` and `email.txt` to insert normalized rows.  
